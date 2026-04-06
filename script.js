@@ -15,10 +15,13 @@ const modalMaterial = document.querySelector("#modalMaterial");
 const modalFit = document.querySelector("#modalFit");
 const modalPrice = document.querySelector("#modalPrice");
 const modalImage = document.querySelector(".modal-image");
+const collectionTabs = document.querySelectorAll(".collection-tab");
+const collectionSections = document.querySelectorAll(".collection-section");
 
 const storageKeys = {
 	theme: "atelier-theme",
 	cart: "atelier-cart",
+	collection: "atelier-collection",
 };
 
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_4gw4gx7i4f2g4xq001";
@@ -123,6 +126,60 @@ if (menuButton && nav) {
 		const isOpen = nav.classList.toggle("open");
 		menuButton.setAttribute("aria-expanded", String(isOpen));
 	});
+}
+
+if (collectionTabs.length > 0 && collectionSections.length > 0) {
+	const parseCollectionFromHash = () => {
+		const hash = window.location.hash.replace("#", "").trim();
+		if (!hash.startsWith("collection=")) {
+			return null;
+		}
+
+		const value = hash.split("=")[1] || "";
+		return value;
+	};
+
+	const isValidCollection = (value) =>
+		Array.from(collectionTabs).some((tab) => tab.dataset.target === value);
+
+	const setCollection = (target) => {
+		collectionTabs.forEach((tab) => {
+			const isActive = tab.dataset.target === target;
+			tab.classList.toggle("active", isActive);
+			tab.setAttribute("aria-selected", String(isActive));
+		});
+
+		collectionSections.forEach((section) => {
+			const matches = target === "all" || section.dataset.collection === target;
+			section.hidden = !matches;
+		});
+
+		localStorage.setItem(storageKeys.collection, target);
+		history.replaceState(null, "", `#collection=${target}`);
+	};
+
+	collectionTabs.forEach((tab) => {
+		tab.addEventListener("click", () => {
+			setCollection(tab.dataset.target || "all");
+		});
+	});
+
+	window.addEventListener("hashchange", () => {
+		const hashCollection = parseCollectionFromHash();
+		if (hashCollection && isValidCollection(hashCollection)) {
+			setCollection(hashCollection);
+		}
+	});
+
+	const hashCollection = parseCollectionFromHash();
+	const savedCollection = localStorage.getItem(storageKeys.collection) || "all";
+	if (hashCollection && isValidCollection(hashCollection)) {
+		setCollection(hashCollection);
+	} else if (isValidCollection(savedCollection)) {
+		setCollection(savedCollection);
+	} else {
+		setCollection("all");
+	}
 }
 
 let toastTimer = null;

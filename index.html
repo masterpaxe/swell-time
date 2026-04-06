@@ -26,7 +26,8 @@
 			<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
 		</div>
 		<nav class="nav" aria-label="Main navigation">
-			<a href="#new">New</a>
+			<a href="#new-arrivals">New Arrivals</a>
+			<a href="#on-sale">On Sale</a>
 			<a href="#featured">Featured</a>
 			<a href="#lookbook">Lookbook</a>
 			<a href="#shop">Shop</a>
@@ -55,7 +56,17 @@
 			</div>
 		</section>
 
-		<section class="featured" id="featured">
+		<section class="collection-switcher reveal" id="collections">
+			<p class="eyebrow">Browse Collections</p>
+			<div class="collection-tabs" role="tablist" aria-label="Collection filter tabs">
+				<button class="collection-tab active" type="button" role="tab" aria-selected="true" data-target="all">All</button>
+				<button class="collection-tab" type="button" role="tab" aria-selected="false" data-target="featured">Featured</button>
+				<button class="collection-tab" type="button" role="tab" aria-selected="false" data-target="new-arrivals">New Arrivals</button>
+				<button class="collection-tab" type="button" role="tab" aria-selected="false" data-target="on-sale">On Sale</button>
+			</div>
+		</section>
+
+		<section class="featured collection-section" id="featured" data-collection="featured">
 			<div class="section-head reveal">
 				<p class="eyebrow">Featured Pieces</p>
 				<h2>Made to move with you</h2>
@@ -91,6 +102,99 @@
 					<p>Structured fit with subtle shoulder shaping.</p>
 					<div class="product-meta">
 						<span>₦156</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="catalog collection-section" id="new-arrivals" data-collection="new-arrivals">
+			<div class="section-head reveal">
+				<p class="eyebrow">New Arrivals</p>
+				<h2>Fresh drops this week</h2>
+			</div>
+			<div class="product-grid">
+				<article class="product reveal" data-name="Noir Slip Dress" data-price="172" data-description="A draped satin slip dress with clean straps and a fluid evening silhouette." data-material="Satin-viscose blend" data-fit="Slim fit" data-image="https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=900&q=80">
+					<img src="https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=900&q=80" alt="Black satin slip dress" loading="lazy" class="product-image" />
+					<h3>Noir Slip Dress</h3>
+					<p>Satin drape with minimalist lines for day-to-night styling.</p>
+					<div class="product-meta">
+						<span>₦172</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+				<article class="product reveal" data-name="Studio Wide-Leg Trousers" data-price="148" data-description="High-waist tailored trousers with relaxed wide legs and soft pleat construction." data-material="Wool blend" data-fit="Relaxed fit" data-image="https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=900&q=80">
+					<img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=900&q=80" alt="Tailored wide-leg trousers" loading="lazy" class="product-image" />
+					<h3>Studio Wide-Leg Trousers</h3>
+					<p>High-rise shape with a polished drape and all-day comfort.</p>
+					<div class="product-meta">
+						<span>₦148</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+				<article class="product reveal" data-name="Cloud Rib Tank" data-price="96" data-description="A fitted rib tank designed as an elevated base layer for capsule wardrobes." data-material="Organic cotton rib" data-fit="Body fit" data-image="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80">
+					<img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80" alt="Neutral ribbed tank top" loading="lazy" class="product-image" />
+					<h3>Cloud Rib Tank</h3>
+					<p>Essential layering piece with premium soft-stretch texture.</p>
+					<div class="product-meta">
+						<span>₦96</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="catalog collection-section" id="on-sale" data-collection="on-sale">
+			<div class="section-head reveal">
+				<p class="eyebrow">On Sale</p>
+				<h2>Final markdown picks</h2>
+			</div>
+			<div class="product-grid">
+				<article class="product reveal" data-name="Crescent Wrap Top" data-price="82" data-description="A cross-front wrap top with soft structure and lightweight movement." data-material="Linen-viscose" data-fit="Regular fit" data-image="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80">
+					<span class="sale-pill">-32%</span>
+					<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Wrap top in neutral tone" loading="lazy" class="product-image" />
+					<h3>Crescent Wrap Top</h3>
+					<p>Last sizes available in this soft-structured staple.</p>
+					<div class="product-meta">
+						<span><del>₦121</del> ₦82</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+				<article class="product reveal" data-name="Harbor Denim Skirt" data-price="74" data-description="Mid-rise A-line denim skirt with clean seams and tailored pockets." data-material="Premium cotton denim" data-fit="A-line fit" data-image="https://images.unsplash.com/photo-1463100099107-aa0980c362e6?auto=format&fit=crop&w=900&q=80">
+					<span class="sale-pill">-28%</span>
+					<img src="https://images.unsplash.com/photo-1463100099107-aa0980c362e6?auto=format&fit=crop&w=900&q=80" alt="Denim skirt in studio" loading="lazy" class="product-image" />
+					<h3>Harbor Denim Skirt</h3>
+					<p>Clean-lined denim with a soft break at the hem.</p>
+					<div class="product-meta">
+						<span><del>₦103</del> ₦74</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+				<article class="product reveal" data-name="Aria Cropped Jacket" data-price="112" data-description="A lightweight cropped jacket with curved seams and tonal matte buttons." data-material="Cotton twill" data-fit="Boxy cropped fit" data-image="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=80">
+					<span class="sale-pill">-25%</span>
+					<img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=900&q=80" alt="Cropped jacket in tan" loading="lazy" class="product-image" />
+					<h3>Aria Cropped Jacket</h3>
+					<p>Final markdown on this easy layering favorite.</p>
+					<div class="product-meta">
+						<span><del>₦149</del> ₦112</span>
 						<div class="product-actions">
 							<button class="view-details" type="button">Details</button>
 							<button class="add-to-cart" type="button">Add</button>
