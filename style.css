@@ -373,10 +373,31 @@ h1 {
 
 .cart-items li {
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	gap: 0.8rem;
 	padding-bottom: 0.45rem;
 	border-bottom: 1px dashed var(--line);
+}
+
+.cart-items li span {
+	flex: 1;
+}
+
+.remove-item {
+	background: transparent;
+	border: none;
+	color: var(--ink-soft);
+	cursor: pointer;
+	font-size: 1rem;
+	line-height: 1;
+	padding: 0 0.25rem;
+	opacity: 0.6;
+}
+
+.remove-item:hover {
+	opacity: 1;
+	color: var(--rust);
 }
 
 .cart-summary {

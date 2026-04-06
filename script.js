@@ -52,8 +52,18 @@ const renderCart = () => {
 	}
 
 	cartItems.innerHTML = cart
-		.map((item) => `<li><span>${item.name}</span><strong>${formatCurrency(item.price)}</strong></li>`)
+		.map((item, index) => `<li><span>${item.name}</span><strong>${formatCurrency(item.price)}</strong><button class="remove-item" type="button" data-index="${index}" aria-label="Remove ${item.name}">&#x2715;</button></li>`)
 		.join("");
+
+	cartItems.querySelectorAll(".remove-item").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const index = Number(btn.dataset.index);
+			const removed = cart.splice(index, 1)[0];
+			saveCart();
+			renderCart();
+			showToast(`${removed.name} removed`);
+		});
+	});
 
 	const total = cart.reduce((sum, item) => sum + item.price, 0);
 	cartCount.textContent = String(cart.length);
