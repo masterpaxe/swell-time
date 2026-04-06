@@ -47,7 +47,7 @@ const renderCart = () => {
 	if (cart.length === 0) {
 		cartItems.innerHTML = "<li>Your cart is empty.</li>";
 		cartCount.textContent = "0";
-		cartTotal.textContent = "$0";
+		cartTotal.textContent = "₦0";
 		return;
 	}
 
