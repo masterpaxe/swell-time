@@ -115,6 +115,27 @@ if (menuButton && nav) {
 	});
 }
 
+let toastTimer = null;
+
+const showToast = (message) => {
+	let toast = document.querySelector(".toast");
+	if (!toast) {
+		toast = document.createElement("div");
+		toast.className = "toast";
+		toast.setAttribute("role", "status");
+		toast.setAttribute("aria-live", "polite");
+		document.body.appendChild(toast);
+	}
+
+	toast.textContent = message;
+	toast.classList.remove("hide");
+
+	clearTimeout(toastTimer);
+	toastTimer = setTimeout(() => {
+		toast.classList.add("hide");
+	}, 2200);
+};
+
 addButtons.forEach((button) => {
 	button.addEventListener("click", () => {
 		const product = button.closest(".product");
@@ -127,6 +148,7 @@ addButtons.forEach((button) => {
 		cart.push({ name, price });
 		saveCart();
 		renderCart();
+		showToast(`${name} added to cart`);
 	});
 });
 

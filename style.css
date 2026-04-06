@@ -392,6 +392,28 @@ h1 {
 	margin-bottom: 0.85rem;
 }
 
+.toast {
+	position: fixed;
+	bottom: 1.5rem;
+	right: 1.5rem;
+	z-index: 200;
+	background: var(--ink);
+	color: var(--sand);
+	padding: 0.65rem 1.1rem;
+	border-radius: 999px;
+	font-weight: 700;
+	font-size: 0.9rem;
+	box-shadow: 0 8px 20px var(--shadow);
+	transform: translateY(0);
+	opacity: 1;
+	transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.toast.hide {
+	opacity: 0;
+	transform: translateY(8px);
+}
+
 .checkout-btn {
 	width: 100%;
 }
