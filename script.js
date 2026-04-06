@@ -23,7 +23,7 @@ const storageKeys = {
 
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_4gw4gx7i4f2g4xq001";
 
-const formatCurrency = (value) => `$${value}`;
+const formatCurrency = (value) => `₦${value}`;
 
 const getStoredCart = () => {
 	try {
