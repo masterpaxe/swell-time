@@ -135,6 +135,40 @@ main {
 	gap: 2rem;
 }
 
+.collection-switcher {
+	display: grid;
+	gap: 0.85rem;
+}
+
+.collection-tabs {
+	display: flex;
+	gap: 0.6rem;
+	flex-wrap: wrap;
+}
+
+.collection-tab {
+	background: transparent;
+	border: 1px solid var(--line);
+	color: var(--ink-soft);
+	font: inherit;
+	font-weight: 700;
+	padding: 0.48rem 0.95rem;
+	border-radius: 999px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.collection-tab:hover {
+	border-color: var(--ink);
+	color: var(--ink);
+}
+
+.collection-tab.active {
+	background: var(--ink);
+	color: var(--sand);
+	border-color: var(--ink);
+}
+
 .eyebrow {
 	text-transform: uppercase;
 	letter-spacing: 0.18em;
@@ -241,6 +275,7 @@ h1 {
 	border-radius: 16px;
 	border: 1px solid var(--line);
 	background: var(--panel);
+	position: relative;
 }
 
 .product-image {
@@ -263,6 +298,26 @@ h1 {
 .product span {
 	display: inline-block;
 	font-weight: 700;
+}
+
+.product del {
+	opacity: 0.55;
+	font-weight: 500;
+	margin-right: 0.35rem;
+}
+
+.sale-pill {
+	position: absolute;
+	top: 0.85rem;
+	left: 0.85rem;
+	background: var(--rust);
+	color: var(--sand);
+	padding: 0.2rem 0.55rem;
+	border-radius: 999px;
+	font-size: 0.74rem;
+	letter-spacing: 0.06em;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 .product-meta {
