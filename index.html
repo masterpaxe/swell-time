@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Atelier North is a small fashion studio website with a curated capsule collection and quick cart." />
+	<meta name="theme-color" content="#f7f2ea" />
+	<meta property="og:title" content="Atelier North | Fashion Studio" />
+	<meta property="og:description" content="Discover the latest capsule collection from Atelier North." />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=1200&q=80" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+	<link rel="apple-touch-icon" href="assets/favicon.svg" />
+	<title>Atelier North | Fashion Studio</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<header class="site-header">
+		<a href="#" class="logo">Atelier North</a>
+		<div class="header-actions">
+			<button class="theme-toggle" aria-label="Switch color theme" aria-pressed="false">Theme</button>
+			<button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+		</div>
+		<nav class="nav" aria-label="Main navigation">
+			<a href="#new">New</a>
+			<a href="#featured">Featured</a>
+			<a href="#lookbook">Lookbook</a>
+			<a href="#shop">Shop</a>
+			<a href="#contact">Contact</a>
+		</nav>
+	</header>
+
+	<main>
+		<section class="hero" id="new">
+			<div class="hero-content reveal">
+				<p class="eyebrow">Spring 2026 Capsule</p>
+				<h1>Tailored softness for city nights.</h1>
+				<p class="lead">
+					A small-batch collection of fluid silhouettes, elevated fabrics, and modern cuts designed for everyday elegance.
+				</p>
+				<div class="hero-actions">
+					<a href="#featured" class="btn btn-dark">Shop Collection</a>
+					<a href="#lookbook" class="btn btn-outline">View Lookbook</a>
+				</div>
+			</div>
+			<div class="hero-card reveal">
+				<p class="card-title">Editor Pick</p>
+				<h2>The Meridian Trench</h2>
+				<p>Crafted in weatherproof cotton with hand-finished seams and a relaxed drape.</p>
+				<p class="price">$189</p>
+			</div>
+		</section>
+
+		<section class="featured" id="featured">
+			<div class="section-head reveal">
+				<p class="eyebrow">Featured Pieces</p>
+				<h2>Made to move with you</h2>
+			</div>
+			<div class="product-grid">
+				<article class="product reveal" data-name="Silk Drift Dress" data-price="138" data-description="A fluid bias-cut dress that glides with each step, ideal for evening layering." data-material="100% silk charmeuse" data-fit="Relaxed fit" data-image="https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=900&q=80">
+					<img src="https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=900&q=80" alt="Model wearing an ivory silk dress" loading="lazy" class="product-image" />
+					<h3>Silk Drift Dress</h3>
+					<p>Bias-cut silk midi dress in moonstone ivory.</p>
+					<div class="product-meta">
+						<span>$138</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+				<article class="product reveal" data-name="Harbor Knit Set" data-price="124" data-description="A matching cardigan and skirt set with a soft drape for day-to-night styling." data-material="Organic cotton blend" data-fit="Comfort fit" data-image="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80">
+					<img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80" alt="Neutral knit cardigan and skirt set" loading="lazy" class="product-image" />
+					<h3>Harbor Knit Set</h3>
+					<p>Soft ribbed knit with cropped cardigan and skirt.</p>
+					<div class="product-meta">
+						<span>$124</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+				<article class="product reveal" data-name="Contour Blazer" data-price="156" data-description="Single-breasted tailoring with sculpted shoulders and clean interior lining." data-material="Wool-viscose blend" data-fit="Structured fit" data-image="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=900&q=80">
+					<img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=900&q=80" alt="Structured blazer on mannequin" loading="lazy" class="product-image" />
+					<h3>Contour Blazer</h3>
+					<p>Structured fit with subtle shoulder shaping.</p>
+					<div class="product-meta">
+						<span>$156</span>
+						<div class="product-actions">
+							<button class="view-details" type="button">Details</button>
+							<button class="add-to-cart" type="button">Add</button>
+						</div>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="lookbook" id="lookbook">
+			<div class="lookbook-text reveal">
+				<p class="eyebrow">Lookbook</p>
+				<h2>Quiet confidence in every layer</h2>
+				<p>From relaxed tailoring to textured staples, every piece is designed to style effortlessly across seasons.</p>
+			</div>
+			<div class="lookbook-grid">
+				<div class="panel panel-a reveal" role="img" aria-label="Flowing neutral outfit with layered accessories"></div>
+				<div class="panel panel-b reveal" role="img" aria-label="Street style look in caramel and cream tones"></div>
+				<div class="panel panel-c reveal" role="img" aria-label="Minimal tailored set photographed in studio"></div>
+			</div>
+		</section>
+
+		<section class="shop reveal" id="shop">
+			<div class="section-head">
+				<p class="eyebrow">Quick Cart</p>
+				<h2>Build your outfit</h2>
+			</div>
+			<div class="cart-card">
+				<ul class="cart-items" aria-live="polite"></ul>
+				<div class="cart-summary">
+					<p>Items: <span id="cartCount">0</span></p>
+					<p>Total: <strong id="cartTotal">$0</strong></p>
+				</div>
+				<p class="checkout-note">Secure checkout powered by Stripe.</p>
+				<button class="btn btn-dark checkout-btn" type="button">Checkout</button>
+			</div>
+		</section>
+	</main>
+
+	<section class="modal hidden" id="productModal" aria-hidden="true">
+		<div class="modal-backdrop" data-close-modal></div>
+		<div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+			<button class="modal-close" type="button" data-close-modal aria-label="Close details">Close</button>
+			<img class="modal-image" src="" alt="" />
+			<p class="eyebrow">Product Details</p>
+			<h3 id="modalTitle"></h3>
+			<p id="modalDescription"></p>
+			<p class="modal-meta"><strong>Material:</strong> <span id="modalMaterial"></span></p>
+			<p class="modal-meta"><strong>Fit:</strong> <span id="modalFit"></span></p>
+			<p class="modal-price" id="modalPrice"></p>
+		</div>
+	</section>
+
+	<footer class="site-footer" id="contact">
+		<p>Atelier North</p>
+		<a href="mailto:hello@ateliernorth.com">hello@ateliernorth.com</a>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+</html>
