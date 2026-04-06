@@ -16,14 +16,9 @@ const modalFit = document.querySelector("#modalFit");
 const modalPrice = document.querySelector("#modalPrice");
 const modalImage = document.querySelector(".modal-image");
 
-const modalVariants = document.querySelector("#modalVariants");
-const newsletterForm = document.querySelector("#newsletterForm");
-const newsletterStatus = document.querySelector("#newsletterStatus");
-
 const storageKeys = {
 	theme: "atelier-theme",
 	cart: "atelier-cart",
-	subscribers: "atelier-subscribers",
 };
 
 const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_4gw4gx7i4f2g4xq001";
@@ -96,35 +91,6 @@ const openModal = (product) => {
 	modalPrice.textContent = formatCurrency(Number(product.dataset.price || "0"));
 	modalImage.src = product.dataset.image || "";
 	modalImage.alt = `${product.dataset.name || "Product"} close view`;
-	
-	if (modalVariants) {
-		const colors = product.dataset.colors ? JSON.parse(product.dataset.colors) : [];
-		const sizes = product.dataset.sizes ? JSON.parse(product.dataset.sizes) : [];
-
-		let variantsHTML = "";
-		if (colors.length > 0) {
-			variantsHTML += `<div class="variant-group"><label>Color:</label><div class="variant-options">`;
-			colors.forEach((color) => {
-				variantsHTML += `<button class="variant-btn" data-variant="${color}" type="button">${color}</button>`;
-			});
-			variantsHTML += `</div></div>`;
-		}
-		if (sizes.length > 0) {
-			variantsHTML += `<div class="variant-group"><label>Size:</label><div class="variant-options">`;
-			sizes.forEach((size) => {
-				variantsHTML += `<button class="variant-btn" data-variant="${size}" type="button">${size}</button>`;
-			});
-			variantsHTML += `</div></div>`;
-		}
-		modalVariants.innerHTML = variantsHTML;
-
-		modalVariants.querySelectorAll(".variant-btn").forEach((btn) => {
-			btn.addEventListener("click", () => {
-				btn.parentElement.querySelectorAll(".variant-btn").forEach((b) => b.classList.remove("selected"));
-				btn.classList.add("selected");
-			});
-		});
-	}
 
 	modal.classList.remove("hidden");
 	modal.setAttribute("aria-hidden", "false");
@@ -253,39 +219,3 @@ revealElements.forEach((element, index) => {
 	element.style.transitionDelay = `${index * 70}ms`;
 	observer.observe(element);
 });
-
-if (newsletterForm && newsletterStatus) {
-	newsletterForm.addEventListener("submit", (event) => {
-		event.preventDefault();
-		const email = newsletterForm.querySelector('input[name="email"]').value;
-
-		if (!email) {
-			newsletterStatus.textContent = "Please enter an email.";
-			newsletterStatus.classList.remove("success");
-			newsletterStatus.classList.add("error");
-			return;
-		}
-
-		let subscribers = [];
-		try {
-			subscribers = JSON.parse(localStorage.getItem(storageKeys.subscribers) || "[]");
-		} catch {
-			subscribers = [];
-		}
-
-		if (!subscribers.includes(email)) {
-			subscribers.push(email);
-			localStorage.setItem(storageKeys.subscribers, JSON.stringify(subscribers));
-		}
-
-		newsletterStatus.textContent = "✓ Welcome! Check your email for your 15% code.";
-		newsletterStatus.classList.remove("error");
-		newsletterStatus.classList.add("success");
-		newsletterForm.reset();
-
-		setTimeout(() => {
-			newsletterStatus.textContent = "";
-			newsletterStatus.classList.remove("success", "error");
-		}, 4000);
-	});
-}

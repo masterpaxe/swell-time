@@ -243,25 +243,6 @@ h1 {
 	background: var(--panel);
 }
 
-.product-badge {
-	position: absolute;
-	top: 0.7rem;
-	right: 0.7rem;
-	background: var(--rust);
-	color: var(--sand);
-	padding: 0.35rem 0.7rem;
-	border-radius: 999px;
-	font-weight: 700;
-	font-size: 0.75rem;
-	text-transform: uppercase;
-	letter-spacing: 0.06em;
-	z-index: 2;
-}
-
-.product {
-	position: relative;
-}
-
 .product-image {
 	height: 180px;
 	width: 100%;
@@ -524,14 +505,6 @@ h1 {
 	margin-top: 0.65rem;
 	font-size: 1.1rem;
 	font-weight: 800;
-
-	.newsletter-form {
-		flex-direction: column;
-	}
-
-	.newsletter-form button {
-		width: 100%;
-	}
 	color: var(--rust);
 }
 
