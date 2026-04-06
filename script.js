@@ -235,7 +235,7 @@ const lookbookBundles = {
 		{ name: "Contour Blazer", price: 156, image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=80&q=80" },
 	],
 	"weekend-linen": [
-		{ name: "Crescent Wrap Top", price: 82, image: "https://images.unsplash.com/photo-1485462537746-965f33f47f46?w=80&q=80" },
+		{ name: "Crescent Wrap Top", price: 82, image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=80&q=80" },
 		{ name: "Harbor Denim Skirt", price: 74, image: "https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=80&q=80" },
 	],
 	"travel-uniform": [
