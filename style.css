@@ -494,6 +494,86 @@ h1 {
 	width: 100%;
 }
 
+.contact-section {
+	display: grid;
+	gap: 1rem;
+}
+
+.contact-grid {
+	display: grid;
+	grid-template-columns: 1fr 1.2fr;
+	gap: 1rem;
+}
+
+.contact-card,
+.contact-form {
+	border: 1px solid var(--line);
+	border-radius: 18px;
+	padding: 1rem;
+	background: var(--panel);
+	box-shadow: 0 12px 24px var(--shadow);
+}
+
+.contact-card h3 {
+	font-size: 1.7rem;
+}
+
+.contact-card p {
+	margin-top: 0.5rem;
+	color: var(--ink-soft);
+}
+
+.contact-list {
+	list-style: none;
+	margin-top: 1rem;
+	display: grid;
+	gap: 0.45rem;
+	color: var(--ink-soft);
+}
+
+.contact-form {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.contact-form label {
+	margin-top: 0.35rem;
+	font-weight: 700;
+	font-size: 0.9rem;
+	color: var(--ink-soft);
+}
+
+.contact-form input,
+.contact-form textarea {
+	width: 100%;
+	padding: 0.7rem 0.85rem;
+	border: 1px solid var(--line);
+	border-radius: 12px;
+	font: inherit;
+	background: rgba(255, 255, 255, 0.4);
+	color: var(--ink);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+	outline: 2px solid rgba(154, 77, 47, 0.25);
+	border-color: var(--rust);
+}
+
+.contact-status {
+	min-height: 1.25rem;
+	font-size: 0.9rem;
+	color: var(--ink-soft);
+}
+
+.contact-status.success {
+	color: var(--sage);
+}
+
+.contact-status.error {
+	color: var(--rust);
+}
+
 .modal {
 	position: fixed;
 	inset: 0;
@@ -598,6 +678,10 @@ h1 {
 
 	.product-grid {
 		grid-template-columns: 1fr 1fr;
+	}
+
+	.contact-grid {
+		grid-template-columns: 1fr;
 	}
 
 	.lookbook-grid {

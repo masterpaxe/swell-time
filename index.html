@@ -232,6 +232,37 @@
 				<button class="btn btn-dark checkout-btn" type="button">Checkout</button>
 			</div>
 		</section>
+
+		<section class="contact-section reveal" id="contact">
+			<div class="section-head">
+				<p class="eyebrow">Contact</p>
+				<h2>Let us style your next look</h2>
+			</div>
+			<div class="contact-grid">
+				<div class="contact-card">
+					<h3>Studio Support</h3>
+					<p>Questions on orders, sizing, or custom requests? Send us a message and the team will reply within 24 hours.</p>
+					<ul class="contact-list">
+						<li><strong>Email:</strong> hello@ateliernorth.com</li>
+						<li><strong>Phone:</strong> +234 801 000 0000</li>
+						<li><strong>Hours:</strong> Mon - Sat, 9:00 - 18:00</li>
+					</ul>
+				</div>
+				<form class="contact-form" id="contactForm">
+					<label for="contactName">Full name</label>
+					<input id="contactName" name="name" type="text" placeholder="Your full name" required />
+
+					<label for="contactEmail">Email address</label>
+					<input id="contactEmail" name="email" type="email" placeholder="you@example.com" required />
+
+					<label for="contactMessage">Message</label>
+					<textarea id="contactMessage" name="message" rows="4" placeholder="How can we help?" required></textarea>
+
+					<button class="btn btn-dark" type="submit">Send Message</button>
+					<p class="contact-status" id="contactStatus" aria-live="polite"></p>
+				</form>
+			</div>
+		</section>
 	</main>
 
 	<section class="modal hidden" id="productModal" aria-hidden="true">
@@ -248,7 +279,7 @@
 		</div>
 	</section>
 
-	<footer class="site-footer" id="contact">
+	<footer class="site-footer">
 		<p>Atelier North</p>
 		<a href="mailto:hello@ateliernorth.com">hello@ateliernorth.com</a>
 	</footer>

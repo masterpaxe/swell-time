@@ -15,6 +15,8 @@ const modalMaterial = document.querySelector("#modalMaterial");
 const modalFit = document.querySelector("#modalFit");
 const modalPrice = document.querySelector("#modalPrice");
 const modalImage = document.querySelector(".modal-image");
+const contactForm = document.querySelector("#contactForm");
+const contactStatus = document.querySelector("#contactStatus");
 const collectionTabs = document.querySelectorAll(".collection-tab");
 const collectionSections = document.querySelectorAll(".collection-section");
 
@@ -276,3 +278,26 @@ revealElements.forEach((element, index) => {
 	element.style.transitionDelay = `${index * 70}ms`;
 	observer.observe(element);
 });
+
+if (contactForm && contactStatus) {
+	contactForm.addEventListener("submit", (event) => {
+		event.preventDefault();
+
+		const formData = new FormData(contactForm);
+		const name = String(formData.get("name") || "").trim();
+		const email = String(formData.get("email") || "").trim();
+		const message = String(formData.get("message") || "").trim();
+
+		if (!name || !email || !message) {
+			contactStatus.textContent = "Please fill all fields before submitting.";
+			contactStatus.classList.remove("success");
+			contactStatus.classList.add("error");
+			return;
+		}
+
+		contactStatus.textContent = "Message sent. Our team will get back to you shortly.";
+		contactStatus.classList.remove("error");
+		contactStatus.classList.add("success");
+		contactForm.reset();
+	});
+}
