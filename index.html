@@ -211,9 +211,30 @@
 				<p>From relaxed tailoring to textured staples, every piece is designed to style effortlessly across seasons.</p>
 			</div>
 			<div class="lookbook-grid">
-				<div class="panel panel-a reveal" role="img" aria-label="Flowing neutral outfit with layered accessories"></div>
-				<div class="panel panel-b reveal" role="img" aria-label="Street style look in caramel and cream tones"></div>
-				<div class="panel panel-c reveal" role="img" aria-label="Minimal tailored set photographed in studio"></div>
+				<article class="look-card panel panel-a reveal" role="img" aria-label="Flowing neutral outfit with layered accessories">
+					<div class="look-card-content">
+						<p class="look-tag">City Evening</p>
+						<h3>Soft tailoring, polished finish</h3>
+						<p>Contour Blazer layered over the Silk Drift Dress for gallery nights and dinner plans.</p>
+						<button class="btn btn-dark shop-look" type="button" data-look="city-evening">Preview Look</button>
+					</div>
+				</article>
+				<article class="look-card panel panel-b reveal" role="img" aria-label="Street style look in caramel and cream tones">
+					<div class="look-card-content">
+						<p class="look-tag">Weekend Linen</p>
+						<h3>Relaxed layers for daylight</h3>
+						<p>Crescent Wrap Top with Harbor Denim Skirt creates a crisp, easy weekend silhouette.</p>
+						<button class="btn btn-dark shop-look" type="button" data-look="weekend-linen">Preview Look</button>
+					</div>
+				</article>
+				<article class="look-card panel panel-c reveal" role="img" aria-label="Minimal tailored set photographed in studio">
+					<div class="look-card-content">
+						<p class="look-tag">Travel Uniform</p>
+						<h3>Comfort with structured shape</h3>
+						<p>Studio Wide-Leg Trousers styled with Cloud Rib Tank and Aria Cropped Jacket.</p>
+						<button class="btn btn-dark shop-look" type="button" data-look="travel-uniform">Preview Look</button>
+					</div>
+				</article>
 			</div>
 		</section>
 
@@ -285,6 +306,19 @@
 			<p class="modal-meta"><strong>Material:</strong> <span id="modalMaterial"></span></p>
 			<p class="modal-meta"><strong>Fit:</strong> <span id="modalFit"></span></p>
 			<p class="modal-price" id="modalPrice"></p>
+		</div>
+	</section>
+
+	<section class="modal hidden" id="lookbookModal" aria-hidden="true">
+		<div class="modal-backdrop" data-close-look></div>
+		<div class="modal-panel look-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lookModalTitle">
+			<button class="modal-close" type="button" data-close-look aria-label="Close look preview">Close</button>
+			<p class="eyebrow">Lookbook Preview</p>
+			<h3 id="lookModalTitle"></h3>
+			<p id="lookModalDescription" class="look-modal-description"></p>
+			<ul id="lookModalItems" class="look-modal-items"></ul>
+			<p class="modal-price" id="lookModalTotal"></p>
+			<button class="btn btn-dark" id="addLookToCart" type="button">Add Entire Look</button>
 		</div>
 	</section>
 

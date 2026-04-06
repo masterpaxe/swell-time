@@ -15,10 +15,18 @@ const modalMaterial = document.querySelector("#modalMaterial");
 const modalFit = document.querySelector("#modalFit");
 const modalPrice = document.querySelector("#modalPrice");
 const modalImage = document.querySelector(".modal-image");
+const lookbookModal = document.querySelector("#lookbookModal");
+const lookModalTitle = document.querySelector("#lookModalTitle");
+const lookModalDescription = document.querySelector("#lookModalDescription");
+const lookModalItems = document.querySelector("#lookModalItems");
+const lookModalTotal = document.querySelector("#lookModalTotal");
+const addLookToCartButton = document.querySelector("#addLookToCart");
+const closeLookButtons = document.querySelectorAll("[data-close-look]");
 const contactForm = document.querySelector("#contactForm");
 const contactStatus = document.querySelector("#contactStatus");
 const collectionTabs = document.querySelectorAll(".collection-tab");
 const collectionSections = document.querySelectorAll(".collection-section");
+const shopLookButtons = document.querySelectorAll(".shop-look");
 
 const storageKeys = {
 	theme: "atelier-theme",
@@ -221,6 +229,109 @@ addButtons.forEach((button) => {
 	});
 });
 
+const lookbookBundles = {
+	"city-evening": [
+		{ name: "Silk Drift Dress", price: 138, image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=80&q=80" },
+		{ name: "Contour Blazer", price: 156, image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=80&q=80" },
+	],
+	"weekend-linen": [
+		{ name: "Crescent Wrap Top", price: 82, image: "https://images.unsplash.com/photo-1485462537746-965f33f47f46?w=80&q=80" },
+		{ name: "Harbor Denim Skirt", price: 74, image: "https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=80&q=80" },
+	],
+	"travel-uniform": [
+		{ name: "Studio Wide-Leg Trousers", price: 148, image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=80&q=80" },
+		{ name: "Cloud Rib Tank", price: 96, image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=80&q=80" },
+		{ name: "Aria Cropped Jacket", price: 112, image: "https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=80&q=80" },
+	],
+};
+
+const lookbookMeta = {
+	"city-evening": {
+		title: "City Evening",
+		description: "Contour Blazer layered over the Silk Drift Dress for gallery nights and dinner plans.",
+	},
+	"weekend-linen": {
+		title: "Weekend Linen",
+		description: "Crescent Wrap Top with Harbor Denim Skirt creates a crisp, easy weekend silhouette.",
+	},
+	"travel-uniform": {
+		title: "Travel Uniform",
+		description: "Studio Wide-Leg Trousers styled with Cloud Rib Tank and Aria Cropped Jacket.",
+	},
+};
+
+let activeLookKey = null;
+
+const closeLookModal = () => {
+	if (!lookbookModal) {
+		return;
+	}
+	lookbookModal.classList.add("hidden");
+	lookbookModal.setAttribute("aria-hidden", "true");
+	document.body.style.overflow = "";
+	activeLookKey = null;
+};
+
+const openLookModal = (lookKey) => {
+	if (!lookbookModal || !lookModalTitle || !lookModalDescription || !lookModalItems || !lookModalTotal) {
+		return;
+	}
+
+	const bundle = lookbookBundles[lookKey] || [];
+	const meta = lookbookMeta[lookKey];
+	if (!meta || bundle.length === 0) {
+		return;
+	}
+
+	activeLookKey = lookKey;
+	lookModalTitle.textContent = meta.title;
+	lookModalDescription.textContent = meta.description;
+	lookModalItems.innerHTML = bundle
+		.map((item) => `<li>
+			<img src="${item.image}" alt="${item.name}" class="look-item-thumb" loading="lazy">
+			<span>${item.name}</span>
+			<strong>${formatCurrency(item.price)}</strong>
+		</li>`)
+		.join("");
+
+	const total = bundle.reduce((sum, item) => sum + item.price, 0);
+	lookModalTotal.textContent = `Look Total: ${formatCurrency(total)}`;
+
+	lookbookModal.classList.remove("hidden");
+	lookbookModal.setAttribute("aria-hidden", "false");
+	document.body.style.overflow = "hidden";
+};
+
+shopLookButtons.forEach((button) => {
+	button.addEventListener("click", () => {
+		const lookKey = button.dataset.look || "";
+		openLookModal(lookKey);
+	});
+});
+
+if (addLookToCartButton) {
+	addLookToCartButton.addEventListener("click", () => {
+		if (!activeLookKey) {
+			return;
+		}
+
+		const bundle = lookbookBundles[activeLookKey] || [];
+		if (bundle.length === 0) {
+			return;
+		}
+
+		bundle.forEach((item) => cart.push(item));
+		saveCart();
+		renderCart();
+		showToast(`Added ${bundle.length} items from lookbook`);
+		closeLookModal();
+	});
+}
+
+closeLookButtons.forEach((button) => {
+	button.addEventListener("click", closeLookModal);
+});
+
 detailButtons.forEach((button) => {
 	button.addEventListener("click", () => {
 		const product = button.closest(".product");
@@ -237,6 +348,7 @@ modalCloseButtons.forEach((button) => {
 document.addEventListener("keydown", (event) => {
 	if (event.key === "Escape") {
 		closeModal();
+		closeLookModal();
 	}
 });
 
